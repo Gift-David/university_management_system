@@ -5,15 +5,16 @@ This is a simple command line interface application that helps universities mana
 
 ## Features
 Users will be able to;
-- Manage Students
-- Manage Professors
-- Manage Courses
+- Manage Students (Add, search, view and delete students)
+- Manage Professors (Add, search, view and delete professors)
+- Manage Courses (Add, search, view and delete courses)
 
 ## Skills Implimented
 Building this project tested my skills on;
 - Object Oriented Programming (OOP)
 - JSON serialization and Deserialization
 - Python Data Structure (lists and dictionaries)
+- Modular programming
 
 ## How To Use
 
