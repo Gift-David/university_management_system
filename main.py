@@ -37,7 +37,7 @@ university = University
 
 def main():
     while True:
-        print("Welcome to my University Management System!")
+        print("Welcome to My University Management System!")
         print("Main menu")
         main_menu()
         try:
