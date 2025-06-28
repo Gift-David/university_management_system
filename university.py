@@ -142,7 +142,7 @@ class University:
         courses = read_json("data/storage/courses.json")
         print(f"{"CODE":<4} | {"TITLE":<20} | {"CREDIT":<3} | {"PROFESSOR":<20}")
         for course in courses:
-            return course
+            print(f"{course["code"]:<4} | {course["title"]:<20} | {course["credit"]:<3} | {course["professor"]:<20}")
         
     def delete_course():
         code = input("Enter course code: ")
