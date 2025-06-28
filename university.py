@@ -6,17 +6,22 @@ from data.file_handler import read_json, write_json, append_to_json, delete_json
 class University:
 
     def add_student():
-        id = input("Enter student's ID: ")
-        name = str(input("Enter student's name: "))
-        email = str(input("Enter student's Email: "))
-        new_student = Student(id, name, email)
-        students = read_json("data/storage/students.json")
-        for student in students:
-            if student["id"] == id:
-                print(f"Student Id:{student["id"]} already exists, enter a new student")
-                return
-        students.append(new_student.to_dict())
-        write_json("data/storage/students.json", students)
+        try:
+            id = input("Enter student's ID: ")
+            name = str(input("Enter student's name: "))
+            email = str(input("Enter student's Email: "))
+            new_student = Student(id, name, email)
+            students = read_json("data/storage/students.json")
+        except Exception as e:
+            print(f"Error: {e}")
+        else:
+            for student in students:
+                if student["id"] == id or student["email"] == email:
+                    print(f"Student Id or Email already exists, enter a new student")
+                    return
+            students.append(new_student.to_dict())
+            write_json("data/storage/students.json", students)
+            print("Student added successfully!")
 
     def get_student():
         id = input("Enter student's ID: ")
@@ -26,7 +31,7 @@ class University:
                 print(f"Student Details \n{"-" * 10}")
                 print(f"ID: {student["id"]} \nName: {student["name"]} \nEmail: {student["email"]}")
             else:
-                print(f"Error: Student Id:{id} doesn't exist")    
+                print(f"Error: Student Id:{id} doesn't exist!")    
 
     def list_students():
         students = read_json("data/storage/students.json")
@@ -49,21 +54,25 @@ class University:
                         break
                     else:
                         print("Invalid input. Enter yes or no")
-
                 
     def add_professor():
-        id = input("Enter professor's ID: ")
-        name = str(input("Enter professor's name: "))
-        email = str(input("Enter professor's Email"))
-        department = str(input("Enter professor's department: "))
-        new_professor = Professor(id, name, email, department)
-        professors = read_json("data/storage/professors.json")
-        for professor in professors:
-            if professor["id"] == id:
-                print(f"Professor Id:{professor["id"]} already exists, enter a new professor")
-                return
-        professors.append(new_professor.to_dict())
-        write_json("data/storage/professors.json", professors)
+        try:
+            id = input("Enter professor's ID: ")
+            name = str(input("Enter professor's name: "))
+            email = str(input("Enter professor's Email: "))
+            department = str(input("Enter professor's department: "))
+        except Exception as e:
+            print("Error: {e}")
+        else:
+            new_professor = Professor(id, name, email, department)
+            professors = read_json("data/storage/professors.json")
+            for professor in professors:
+                if professor["id"] == id or professor["email"] == email:
+                    print(f"Professor Id or Email already exists, enter a new professor")
+                    return
+            professors.append(new_professor.to_dict())
+            write_json("data/storage/professors.json", professors)
+            print("Professor added successfully!")
 
 
     def get_professor():
@@ -74,7 +83,7 @@ class University:
                 print(f"Professor Details \n{"-" * 10}")
                 print(f"ID: {professor["id"]} Name: {professor["name"]} Email: {professor["email"]} Department: {professor["department"]}")
             else:
-                print(f"Error: Professor Id:{id} doesn't exist")
+                print(f"Error: Professor Id:{id} doesn't exist!")
 
     def list_professors():
         professors = read_json("data/storage/professors.json")
@@ -83,7 +92,7 @@ class University:
             print(f"{professor["id"]:<4} | {professor["name"]:<20} | {professor["email"]:<20} | {professor["department"]:<20}")
    
         
-    def delete_professor(self):
+    def delete_professor():
         id = input("Enter student's ID: ")
         professors = read_json("data/storage/professors.json")
         for professor in professors:
@@ -99,20 +108,24 @@ class University:
                     else:
                         print("Invalid input. Enter yes or no")
 
-
     def add_course():
-        code = input("Enter course code: ")
-        title = str(input("Enter course title: "))
-        credits = str(input("Enter course credit(s): "))
-        professor = str(input("Enter couurse professor: "))
-        new_course = Course(code, title, credits, professor)
-        courses = read_json("data/storage/courses.json")
-        for course in courses:
-            if course["code"] == code:
-                print(f"Course code:{course["code"]} already exists, enter a new course")
-                return
-        courses.append(new_course.to_dict())
-        write_json("data/storage/courses.json", courses)
+        try:
+            code = input("Enter course code: ")
+            title = str(input("Enter course title: "))
+            credits = str(input("Enter course credit(s): "))
+            professor = str(input("Enter couurse professor: "))
+        except Exception as e:
+            print(f"Error: {e}")
+        else:
+            new_course = Course(code, title, credits, professor)
+            courses = read_json("data/storage/courses.json")
+            for course in courses:
+                if course["code"] == code:
+                    print(f"Course code:{course["code"]} already exists, enter a new course")
+                    return
+            courses.append(new_course.to_dict())
+            write_json("data/storage/courses.json", courses)
+            print("Course added successfully!")
 
 
     def get_course():
@@ -123,7 +136,7 @@ class University:
                 print(f"Course Details \n{"-" * 10}")
                 print(f"ID: {course["code"]} \nName: {course["title"]} \nCredits: {course["credits"]} \nProfessor Incharge: {course["professor"]}")
             else:
-                print(f"Error: Course code:{code} doesn't exist")
+                print(f"Error: Course code:{code} doesn't exist!")
     
     def list_courses():
         courses = read_json("data/storage/courses.json")
@@ -131,7 +144,7 @@ class University:
         for course in courses:
             return course
         
-    def delete_course(self):
+    def delete_course():
         code = input("Enter course code: ")
         courses = read_json("data/storage/courses.json")
         for course in courses:

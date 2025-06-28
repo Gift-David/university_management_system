@@ -1,3 +1,32 @@
 [
-    
+    {
+        "id": "1",
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "department": "Environmental Engineering"
+    },
+    {
+        "id": "2",
+        "name": "wefwef",
+        "email": "johndoe@example.com",
+        "department": "eer"
+    },
+    {
+        "id": "3",
+        "name": "gergr",
+        "email": "cwdwe",
+        "department": "efwef"
+    },
+    {
+        "id": "3",
+        "name": "egerger",
+        "email": "johndoe@example.com",
+        "department": "wfwerfe"
+    },
+    {
+        "id": "3",
+        "name": "wfe",
+        "email": "efwe",
+        "department": "efwef"
+    }
 ]

@@ -1,5 +1,5 @@
 # UNIVERSITY MANAGEMENT SYSTEM
-This is a simple command line interface application that helps universities manage their students, professors and course. Built with python, it tested my skills on object oriented programming, JSON serialization amongst others 
+This is a simple command line interface application that helps universities manage their students, professors and courses. Built with python, it tested my skills on object oriented programming, JSON serialization amongst others.
 
 ## Author: David Gift
 
@@ -15,8 +15,18 @@ Building this project tested my skills on;
 - JSON serialization and Deserialization
 - Python Data Structure (lists and dictionaries)
 - Modular programming
+- Exception Handling
+
+## Installation
+- **Clone the repository**
+In your choice directory, clone the repository or run the command;
+```bash
+git clone https://github.com/Gift-David/university_management_system.git
+```
 
 ## How To Use
+To use the application, execute the main Python script from your terminal:
 
-
-## Debugging Story
+```bash
+python your_main_script_namme.py
+```
