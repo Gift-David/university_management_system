@@ -29,7 +29,7 @@ class University:
         for student in students:
             if student["id"] == id:
                 print(f"Student Details \n{"-" * 10}")
-                print(f"ID: {student["id"]} \nName: {student["name"]} \nEmail: {student["email"]}")
+                print(f"ID: {student['id']} \nName: {student['name']} \nEmail: {student['email']}")
             else:
                 print(f"Error: Student Id:{id} doesn't exist!")    
 
@@ -49,7 +49,7 @@ class University:
                     choice = str(input("Are you sure? (yes/no)")).strip().lower()
                     if choice == "yes":
                         delete_json_record("data/storage/students.json", key="id", value=id)
-                        print(f"{student["name"]} deleted successfully")
+                        print(f"{student['name']} deleted successfully")
                     elif choice == "no":
                         break
                     else:
